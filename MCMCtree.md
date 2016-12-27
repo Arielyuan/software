@@ -10,7 +10,8 @@
 B:分化时间;@1.48:根部的年龄(有时候表示化石标记时间)  
 注:@1.48不能写成'(@1.48)',里面不能加括号，会导致结果不正确。时间可以从文献中查出，单位是百万年
 
-###1.2 basemlctl文件：(修改*号的行，其他为默认参数)
+###1.2 basemlctl文件：
+修改*号的行，其他为默认参数
 ```
 **     seqfile = rm.miss.pil.total.4dtv.phyml.base * sequence data file name  ##phyml格式的输入序列文件
 **      outfile = mlb        * main result file ##baseml的输出结果文件
