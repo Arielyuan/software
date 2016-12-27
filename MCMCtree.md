@@ -1,5 +1,5 @@
 #当用4dtv位点画出来的树形正确后，需要估计分化时间，用的是paml中包含的软件mcmctree
-#1.运行baseml;
+#1.运行baseml
 ##1.1 树文件:
 ```
 11 1
@@ -20,7 +20,7 @@
 /share/work/user124/software/05.gene_analyze/paml4.8/src/baseml baseml.ctl;
 ```
 
-#2.运行mcmctree第一步;
+#2.运行mcmctree第一步
 ##2.1 树文件：
 ```
 11 1
@@ -53,7 +53,7 @@
 export PATH=$PATH:/share/work/user124/software/05.gene_analyze/paml4.8/src/;/share/work/user124/software/05.gene_analyze/paml4.8/src/mcmctree mcmc.1.ctl
 ```
 
-#3.运行mcmctree第二步：
+#3.运行mcmctree第二步
 ##3.1 树文件：
 ```
 11 1
