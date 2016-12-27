@@ -50,7 +50,8 @@ range : 1,0.648944/(0.648944*0.648944)
 **       nsample = 10000  #调整取样的次数
 ```
 
-###2.4 运行命令 #注要加入baseml的路径，或者导入环境变量中
+###2.4 运行命令  
+ #注要加入baseml的路径，或者导入环境变量中
 ```
 export PATH=$PATH:/share/work/user124/software/05.gene_analyze/paml4.8/src/;/share/work/user124/software/05.gene_analyze/paml4.8/src/mcmctree mcmc.1.ctl
 ```
