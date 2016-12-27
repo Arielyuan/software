@@ -1,37 +1,35 @@
-##当用4dtv位点画出来的树形正确后，需要估计分化时间，用的是paml中包含的软件mcmctree
+#当用4dtv位点画出来的树形正确后，需要估计分化时间，用的是paml中包含的软件mcmctree
 ##使用方法：
 
 *********************************************
-##1.运行baseml;
-####1.1 树文件:
+#1.运行baseml;
+##1.1 树文件:
 11 1
 ((((((((pil,peu),ptr),wil),rco),(ath,cpa)'B(0.54, 0.90)')'B(0.95, 1.05)',(csa,fve)),vvi)'B(1.06, 1.19)',osa)'B(1.30, 1.80)''@1.48';
-#(11个物种,1颗树)
-#B:分化时间;@1.48:根部的年龄(有时候表示化石标记时间); (注:@1.48不能写成'(@1.48)',里面不能加括号，会导致结果不正确);时间可以从
-文献中查出，单位是百万年
+##(11个物种,1颗树)
+##B:分化时间;@1.48:根部的年龄(有时候表示化石标记时间); (注:@1.48不能写成'(@1.48)',里面不能加括号，会导致结果不正确);时间可以从文献中查出，单位是百万年
 
-####1.2 basemlctl文件：(修改*号的行，其他为默认参数)
+##1.2 basemlctl文件：(修改*号的行，其他为默认参数)
 **      seqfile = rm.miss.pil.total.4dtv.phyml.base * sequence data file name  ##phyml格式的输入序列文件
 **      outfile = mlb        * main result file ##baseml的输出结果文件
 **     treefile = RAxML_bipartitions.pil.4dtv.rmmiss.phb  * tree structure file name  ##树文件
 
-####1.3 运行命令：
+##1.3 运行命令：
 /share/work/user124/software/05.gene_analyze/paml4.8/src/baseml baseml.ctl;
 
 
 ***********************************************
-##2.运行mcmctree第一步;
-####2.1 树文件：
+#2.运行mcmctree第一步;
+##2.1 树文件：
 11 1
-((((((((pil,peu),ptr),wil),rco),(ath,cpa)'B(0.54, 0.90)')'B(0.95, 1.05)',(csa,fve)),vvi)'B(1.06, 1.19)',osa)'B(1.30, 1.80)''@1.48';
-#用第一步用的树即可；
+((((((((pil,peu),ptr),wil),rco),(ath,cpa)'B(0.54, 0.90)')'B(0.95, 1.05)',(csa,fve)),vvi)'B(1.06, 1.19)',osa)'B(1.30, 1.80)''@1.48';#用第一步用的树即可；
 
-####2.2 计算range参数：
-#在mlb结果中，有一行输出是: Substitution rate is per time unit
+##2.2 计算range参数：
+ #在mlb结果中，有一行输出是: Substitution rate is per time unit
                                  0.648944 +- 0.004968
-#range : 1,0.648944/(0.648944*0.648944)
+ #range : 1,0.648944/(0.648944*0.648944)
 
-####2.3 mcmctreectl文件
+##2.3 mcmctreectl文件
 **       seqfile = rm.miss.pil.total.4dtv.phyml.base
 **      treefile = RAxML_bipartitions.pil.4dtv.rmmiss.phb
 **       outfile = out_usedata2
@@ -41,12 +39,12 @@
 **   rgene_gamma = 1 1.55     * gamma prior for rate for genes。 #之前计算出来的值
 **       nsample = 10000  #调整取样的次数
 
-####2.4 运行命令 #注 要加入baseml的路径，或者导入环境变量中
+##2.4 运行命令 #注 要加入baseml的路径，或者导入环境变量中
 export PATH=$PATH:/share/work/user124/software/05.gene_analyze/paml4.8/src/;/share/work/user124/software/05.gene_analyze/paml4.8/src/mcmctree mcmc.1.ctl
 
 
 ************************************************
-##3.运行mcmctree第二步：
+#3.运行mcmctree第二步：
 ####3.1 树文件：
 11 1
 ((((((((pil,peu),ptr),wil),rco),(ath,cpa)'B(0.54, 0.90)')'B(0.95, 1.05)',(csa,fve)),vvi)'B(1.06, 1.19)',osa)'B(1.30, 1.80)';
